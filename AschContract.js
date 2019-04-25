@@ -1,4 +1,4 @@
-const OFFERING_TOKEN = 'XAS' //众筹得到的Token
+const OFFERING_TOKEN = 'XAS' //需要注入的Token
 
 interface FundingInfo {
     tokenAmount: bigint
