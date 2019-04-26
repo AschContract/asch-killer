@@ -9,9 +9,9 @@ interface FundingInfo {
 class Funding {
     // 账户得到的token数量
     tokenAmount: bigint
-    // 参与众筹XAS数量
+    // 注入XAS数量
     xasAmount: bigint
-    // 参与众筹BCH数量
+    // BCH数量
     bchAmount: bigint
     constructor() {
         this.tokenAmount = BigInt(0)
@@ -20,9 +20,9 @@ class Funding {
     }
 }
 
-// 众筹合约类
+// 游戏钱包类
 export class SimpleCrowdFundgingContract extends AschContract {
-    // 记录每个地址的众筹信息
+    // 记录每个地址的信息
     fundingOfAddress: Mapping<Funding>
     // 兑换比例
     rateOfCurrency: Mapping<bigint>
@@ -38,7 +38,6 @@ export class SimpleCrowdFundgingContract extends AschContract {
     // 初始化方法，会在合约注册时被调用
     constructor() {
         super()
-
         this.rateOfCurrency = new Mapping<bigint>()
         this.rateOfCurrency['XAS'] = BigInt(100) // 1 XAS = 100 token
         this.rateOfCurrency['BCH'] = BigInt(30000) // 1 BCH = 30000 token
